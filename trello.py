@@ -14,7 +14,7 @@ def read():
 	column_data = requests.get(base_url.format('boards') + '/' + board_id + '/lists', params=auth_params).json()
 	for column in column_data:
 		task_data = requests.get(base_url.format('lists') + '/' + column['id'] + '/cards', params=auth_params).json()
-		print(column['name'], "задач: {}".format(len(task_data)))
+		print(column['name'], " || задач в колонке: {}".format(len(task_data)))
 		if not task_data:
 			print('\t' + 'Нет задач!')
 			continue
